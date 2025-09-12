@@ -1,6 +1,10 @@
 package PartOne.Sorts;
 
-public class Insertion {
+import PartOne.Utility.Time;
+
+import java.util.HashMap;
+
+public class Insertion implements Time {
 
     public static Object[] sort(double[] arr){
         long currentTime = System.currentTimeMillis();
@@ -15,5 +19,10 @@ public class Insertion {
         }
         long timeElapse = System.currentTimeMillis() - currentTime;
         return new Object[]{arr, timeElapse};
+    }
+
+    @Override
+    public HashMap<Integer, Double> Record() {
+        return null;
     }
 }

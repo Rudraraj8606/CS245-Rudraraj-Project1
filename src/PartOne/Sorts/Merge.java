@@ -1,6 +1,10 @@
 package PartOne.Sorts;
 
-public class Merge {
+import PartOne.Utility.Time;
+
+import java.util.HashMap;
+
+public class Merge implements Time {
 
     private static double[] get_left(double arr[]){
         int length = arr.length / 2;
@@ -54,5 +58,10 @@ public class Merge {
         }
         long timeElapse = System.currentTimeMillis() - currentTime;
         return new Object[]{arr, timeElapse};
+    }
+
+    @Override
+    public HashMap<Integer, Double> Record() {
+        return null;
     }
 }
