@@ -8,9 +8,7 @@ import java.util.HashMap;
 public class Bubble implements Time {
 
     public static Object[] sort(double[] arr){
-//        System.out.println("array provided is: ");
-//        System.out.println(Arrays.toString(arr));
-        long currentTime = System.currentTimeMillis();
+        long currentTime = System.nanoTime();
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -22,12 +20,12 @@ public class Bubble implements Time {
                 }
             }
         }
-        long timeElapse = System.currentTimeMillis() - currentTime;
+        double timeElapse = (System.nanoTime() - currentTime) / 1_000_000f;
         return new Object[]{arr, timeElapse};
     }
 
     @Override
-    public HashMap<Integer, Double> Record() {
+    public HashMap<Integer, Double> Record(int size, Double time) {
         return null;
     }
 }

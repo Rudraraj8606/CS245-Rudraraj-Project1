@@ -51,7 +51,7 @@ public class Quick implements Time {
     }
 
     @Override
-    public HashMap<Integer, Double> Record() {
+    public HashMap<Integer, Double> Record(int size, Double time) {
         return null;
     }
 }

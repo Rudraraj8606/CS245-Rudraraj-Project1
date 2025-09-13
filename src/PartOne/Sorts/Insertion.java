@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Insertion implements Time {
 
     public static Object[] sort(double[] arr){
-        long currentTime = System.currentTimeMillis();
+        long currentTime = System.nanoTime();
         for (int i = 1; i < arr.length; i++) {
             double temp = arr[i];
             int j = i - 1;
@@ -17,12 +17,12 @@ public class Insertion implements Time {
             }
             arr[j+1] = temp;
         }
-        long timeElapse = System.currentTimeMillis() - currentTime;
+        double timeElapse = (System.nanoTime() - currentTime) / 1_000_000f;
         return new Object[]{arr, timeElapse};
     }
 
     @Override
-    public HashMap<Integer, Double> Record() {
+    public HashMap<Integer, Double> Record(int size, Double time) {
         return null;
     }
 }

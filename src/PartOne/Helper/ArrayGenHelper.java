@@ -8,6 +8,10 @@ public class ArrayGenHelper implements Array {
     private static int size = 0;
     Random random;
 
+    public static int getSize() {
+        return size;
+    }
+
     public ArrayGenHelper() {
         random = new Random(12345L); // making sure the random values are same everytime
     }
@@ -15,11 +19,11 @@ public class ArrayGenHelper implements Array {
     @Override
     public double[] GenArray(int count) {
         if(count <= 12){
-            size += 5;
-//            size += 50_000;
+//            size += 5;
+            size += 50_000;
             double[] array = new double[size];
             for (int i = 0; i < size; i++) {
-                array[i] = random.nextInt();
+                array[i] = random.nextInt(30_001);
             }
             return array;
         }else{

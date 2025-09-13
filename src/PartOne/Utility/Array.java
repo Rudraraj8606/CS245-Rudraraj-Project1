@@ -3,8 +3,6 @@
 
 package PartOne.Utility;
 
-import java.util.HashMap;
-
 public interface Array {
 
     double[] GenArray(int count);

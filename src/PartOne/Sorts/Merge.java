@@ -17,10 +17,10 @@ public class Merge implements Time {
 
     private static double[] get_right(double arr[]){
         int length = arr.length - (arr.length / 2);
+        int mid = arr.length / 2;
         double[] rightArr = new double[length];
-        int arrIdx = 0;
-        for (int i = length; i < arr.length; i++) {
-            rightArr[arrIdx++] = arr[i];
+        for (int i = 0; i < length; i++) {
+            rightArr[i] = arr[mid + i];
         }
         return rightArr;
     }
@@ -47,8 +47,9 @@ public class Merge implements Time {
     }
 
     public static Object[] sort(double arr[]){
-        long currentTime = System.currentTimeMillis();
+        long currentTime = 0;
         if(arr.length > 1){
+            currentTime = System.nanoTime();
             double[] left = get_left(arr);
             double[] right = get_right(arr);
 
@@ -56,12 +57,12 @@ public class Merge implements Time {
             sort(right);
             merge(arr, left, right);
         }
-        long timeElapse = System.currentTimeMillis() - currentTime;
+        double timeElapse = (System.nanoTime() - currentTime) / 1_000_000f;
         return new Object[]{arr, timeElapse};
     }
 
     @Override
-    public HashMap<Integer, Double> Record() {
+    public HashMap<Integer, Double> Record(int size, Double time) {
         return null;
     }
 }

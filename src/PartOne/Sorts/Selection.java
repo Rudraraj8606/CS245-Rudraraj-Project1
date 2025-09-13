@@ -17,19 +17,19 @@ public class Selection implements Time {
     }
 
     static Object[] sort(double[] arr){
-        long currentTime = System.currentTimeMillis();
+        long currentTime = System.nanoTime();
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = findSmallest(arr, i);
             double temp = arr[i];
             arr[i] = arr[minIndex];
             arr[minIndex] = temp;
         }
-        long timeElapse = System.currentTimeMillis() - currentTime;
+        double timeElapse = (System.nanoTime() - currentTime) / 1_000_000f;
         return new Object[]{arr, timeElapse};
     }
 
     @Override
-    public HashMap<Integer, Double> Record() {
+    public HashMap<Integer, Double> Record(int size, Double time) {
         return null;
     }
 }

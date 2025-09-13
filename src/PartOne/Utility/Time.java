@@ -3,5 +3,5 @@ package PartOne.Utility;
 import java.util.HashMap;
 
 public interface Time {
-    HashMap<Integer, Double> Record();
+    HashMap<Integer, Double> Record(int size, Double time);
 }
