@@ -19,8 +19,8 @@ public class ArrayGenHelper implements Array {
     @Override
     public double[] GenArray(int count) {
         if(count <= 12){
-//            size += 5;
-            size += 50_000;
+            size += 5;
+//            size += 50_000;
             double[] array = new double[size];
             for (int i = 0; i < size; i++) {
                 array[i] = random.nextInt(30_001);

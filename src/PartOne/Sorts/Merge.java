@@ -58,11 +58,26 @@ public class Merge implements Time {
             merge(arr, left, right);
         }
         double timeElapse = (System.nanoTime() - currentTime) / 1_000_000f;
-        return new Object[]{arr, timeElapse};
+        if(checkSorted(arr)) {
+            return new Object[]{arr, Math.round(timeElapse * 10000) / 10000.0};
+        }else {
+            return null;
+        }
     }
 
     @Override
     public HashMap<Integer, Double> Record(int size, Double time) {
         return null;
+    }
+
+    private static boolean checkSorted(double[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            if(arr[i] < arr[i+1]){
+                continue;
+            }else {
+                return false;
+            }
+        }
+        return true;
     }
 }

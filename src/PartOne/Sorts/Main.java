@@ -13,17 +13,42 @@ public class Main{
             int size = ArrayGenHelper.getSize();
             System.out.printf("size of the array: %d\n", size);
             Object[] bubbleSort = Bubble.sort(array.clone()); // blue
-            System.out.printf("\u001B[34m" + "time for bubble sort for arraySize %d is %.4f ms\n", size, (double) bubbleSort[1]);
+            if(bubbleSort != null){
+                System.out.printf("\u001B[34mtime for bubble sort for arraySize %d is %s ms\u001B[34m\n", size, bubbleSort[1].toString());
+            }else {
+                System.out.println("error occurred in bubble sort ; not sorted properly");
+                break;
+            }
             Object[] insertionSort = Insertion.sort(array.clone()); // Magenta
-            System.out.printf("\u001B[35m" + "time for insertion sort for arraySize %d is %.4f ms\n", size, (double) insertionSort[1]);
+            if (insertionSort != null){
+                System.out.printf("\u001B[35mtime for insertion sort for arraySize %d is %s ms\u001B[35m\n", size, insertionSort[1].toString());
+            }else {
+                System.out.println("error occurred in insertion sort ; not sorted properly");
+                break;
+            }
             Object[] mergeSort = Merge.sort(array.clone()); // cyan
-            System.out.printf("\u001B[36m" + "time for merge sort for arraySize %d is %.4f ms\n", size, (double) mergeSort[1]);
+            if (mergeSort != null){
+                System.out.printf("\u001B[36mtime for merge sort for arraySize %d is %s ms\u001B[36m\n", size, mergeSort[1].toString());
+            }else{
+                System.out.println("error occurred in merge sort ; not sorted properly");
+                break;
+            }
             Object[] quickSort = Quick.sort(array.clone(), 0, array.length - 1); // white
-            System.out.printf("time for quick sort for arraySize %d is %.4f ms\n", size, (double) quickSort[1]);
+            if(quickSort != null){
+                System.out.printf("\u001B[97mtime for quick sort for arraySize %d is %s ms\u001B[97m\n", size, quickSort[1].toString());
+            }else{
+                System.out.println("error occurred in quick sort ; not sorted properly");
+                break;
+            }
             Object[] selectionSort = Selection.sort(array.clone()); // yellow
-            System.out.printf("\u001B[33m" + "time for selection sort for arraySize %d is %.4f ms\n", size, (double) selectionSort[1]);
-            System.out.println("-".repeat(50));
-            System.out.println("-".repeat(50));
+            if( selectionSort != null){
+                System.out.printf("\u001B[33mtime for selection sort for arraySize %d is %s ms\u001B[33m\n", size, selectionSort[1].toString());
+            }else{
+                System.out.println("error occurred in selection sort ; not sorted properly");
+                break;
+            }
+            System.out.println("\u001B[97m-".repeat(50));
+            System.out.println("\u001B[97m-".repeat(50));
         }
         double timeElapse = (System.nanoTime() - currentTime) / 60_000_000_000f;
         System.out.printf("\u001B[31m" + "Total time took for the program to run %.4f min", timeElapse);
